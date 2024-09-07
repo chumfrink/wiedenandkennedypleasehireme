@@ -1,0 +1,390 @@
+/* Basic Reset */
+body, h1, h2, h3, p, ul, a {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+}
+
+body {
+    background-color: #fffefa;
+    height: 100vh;
+    position: relative;
+    text-align: left;
+}
+
+/* Left side text */
+.left-side {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    max-width: 550px;
+}
+
+/* Add spacing between paragraphs in the left side */
+.left-side p {
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+/* Right side text */
+.right-side {
+    position: absolute;
+    top: 40px;
+    right: 120px;
+    text-align: left;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+}
+
+/* Ensure alignment and spacing */
+.right-side p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; /* Vertical center alignment */
+}
+
+.right-side .location {
+    margin-left: 40px; /* Adjust spacing between text and the location */
+}
+
+/* Spacing between "I'm currently in" and the following text */
+.right-side p:first-of-type {
+    margin-bottom: 50px; /* Increase this value for more space */
+}
+
+/* Container for "I've worked in" and scrolling text */
+.worked-in-container {
+    display: flex; /* Keep "I've worked in" and scrolling text in one line */
+    align-items: center; /* Vertically align them */
+    justify-content: flex-start;
+    white-space: nowrap;
+    width: 100%;
+}
+
+/* Scrolling text is on the right side */
+.scroll-wrapper {
+    display: inline-block;
+    margin-left: 45px; /* Spacing between "I've worked in" and the scroll box */
+}
+
+/* Scroll container */
+.scroll-container {
+    position: relative;
+    height: 50px; /* Adjust height as needed */
+    overflow: hidden;
+    width: 220px; /* Adjust width as needed */
+}
+
+/* Fade effect */
+.scroll-container:before, .scroll-container:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 20px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.scroll-container:before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(255, 254, 250, 1), rgba(255, 254, 250, 0));
+}
+
+.scroll-container:after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(255, 254, 250, 1), rgba(255, 254, 250, 0));
+}
+
+/* Scrolling list items */
+.right-side ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.right-side ul li {
+    font-size: 1.1em;
+    line-height: 2.4em;
+    margin-bottom: 5px;
+    opacity: 0.7;
+}
+
+/* About Me section styling */
+.about-section {
+    height: 100vh;
+    padding-top: 700px; 
+    text-align: center;
+    background-color: #fffefa;
+}
+
+.about-text {
+    margin-top: 100px;
+}
+
+.about-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.2em;
+    line-height: 1.8;
+}
+
+.about-me-blurb p {
+    margin: 0 auto;
+    margin-top: 40px;
+    text-align: center;
+    max-width: 550px;
+}
+
+/* Image containers */
+.young-joey, .blockbuster-video {
+    position: fixed;
+    width: auto;
+    opacity: 0; /* Start hidden */
+    transition: opacity 1.5s ease-out, transform 1.5s cubic-bezier(0.6, 0.05, 0.1, 1); /* Smoother transition with pizzazz */
+}
+
+.young-joey {
+    transform: translateX(-300px) scale(0.33); /* Further reduced size */
+    top: 0%; /* Move the image higher up on the page */
+    left: 0;
+}
+
+.young-joey.show {
+    opacity: 1;
+    transform: translateX(50px) scale(0.33) rotate(5deg); /* Slight rotation for pizzazz */
+}
+
+.blockbuster-video {
+    position: fixed;
+    transform: translateX(300px) scale(0.33); /* Scale down */
+    top: 40%; /* Adjust top position to place it below Young Joey */
+    right: -230px; /* Position it to the right side */
+    opacity: 0; /* Start hidden */
+    transition: opacity 1.5s ease-out, transform 1.5s cubic-bezier(0.6, 0.05, 0.1, 1);
+}
+
+.blockbuster-video.show {
+    opacity: 1;
+    transform: translateX(-50px) scale(0.33) rotate(-5deg); /* Slide in from right with pizzazz */
+}
+
+/* Adjust the fade-out */
+.young-joey.hide {
+    opacity: 0;
+    transform: translateX(-300px) scale(0.33); /* Moves out left */
+    transition: opacity 1s ease-in, transform 1s ease-in;
+}
+
+.blockbuster-video.hide {
+    opacity: 0;
+    transform: translateX(300px) scale(0.2); /* Slide out smoothly */
+    transition: opacity 1s ease-in, transform 1s ease-in;
+}
+
+/* Work section styling */
+.work-section {
+    background-color: #fffefa;
+    padding-top: 150px;
+}
+
+/* Container for work section */
+.work-container {
+    display: flex; /* Flexbox layout for parallel positioning */
+    justify-content: space-between; /* Space out content evenly */
+    align-items: flex-start; /* Align at the top */
+    padding: 50 100px; /* Add some padding for spacing */
+    max-width: 1400px; /* Set a max width for the content */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Left side: Paragraphs */
+.work-content {
+    flex: 1; /* Take up remaining space */
+    max-width: 60%; /* Limit width to 60% */
+    padding-right: 40px; /* Add some padding to the right */
+    text-align: center;
+}
+
+.work-content h2 {
+    font-size: 2.4em;
+    margin-bottom: 20px;
+}
+
+.work-content p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+    width: 100%;
+    height: 150px;
+    margin-bottom: -70px;
+    margin-top: -0px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s linear;
+}
+
+.carousel img {
+    height: 50px; /* Set the desired height for all logos */
+    width: auto; /* Maintain aspect ratio based on height */
+    margin: 0 25px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.carousel img:hover {
+    opacity: 1;
+}
+
+/* Fading effect */
+.fade-left, .fade-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    height: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.fade-left {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 254, 250, 1), rgba(255, 254, 250, 0));
+}
+
+.fade-right {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 254, 250, 1), rgba(255, 254, 250, 0));
+}
+
+/* Left to Right */
+.left-to-right .carousel {
+    transform: translateX(0);
+}
+
+/* Right to Left */
+.right-to-left .carousel {
+    transform: translateX(100%);
+}
+
+/* Style for the resume container */
+.resume-container {
+    flex-basis: 35%;
+    text-align: center;
+    padding: 50px;
+}
+
+/* Default resume image size */
+#resume-img {
+    width: 120%; /* Adjust this size to make it look good initially */
+    transition: transform 0.3s ease; /* Add a smooth transition */
+    cursor: pointer;
+}
+
+/* When the image is expanded */
+#resume-img.expanded {
+    transform: scale(1); /* Adjust the scale as needed */
+    z-index: 100;
+    position: fixed;
+    top: 10%;
+    left: 25%;
+    width: 50%;
+}
+/* Video Section */
+.video-section {
+    padding: 60px 100px; /* Adds space around the section */
+    text-align: center; /* Centers the heading */
+    background-color: #fffefa; /* Matches the background color */
+}
+
+.video-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px; /* Adds space below the heading */
+}
+
+.video-container {
+    display: flex;
+    justify-content: space-between; /* Ensures the videos are side by side */
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the video container */
+}
+
+.video-column {
+    flex-basis: 48%; /* Allows each column to take up 48% of the width */
+    text-align: center; /* Centers the content in each column */
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* This maintains a 16:9 aspect ratio for the videos */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Conclusion Section Styling */
+.conclusion-section {
+    text-align: center;
+    background-color: #fffefa;
+    padding: 50px 20px;
+    margin-top: 50px;
+}
+
+.conclusion-section h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.conclusion-section p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    font-weight: 100;
+}
+
+.conclusion-section a {
+    color: blue;
+    text-decoration: underline;
+}
+
+.conclusion-section a:hover {
+    color: darkblue;
+}
+
+footer {
+    text-align: center; /* Centers the image horizontally */
+    margin-top: 50px; /* Adjust this margin as needed */
+}
+
+.footer-image img {
+    max-width: 20%; /* Ensures the image scales to fit the screen */
+    height: auto; /* Keeps the image's aspect ratio */
+}
