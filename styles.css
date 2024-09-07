@@ -388,3 +388,62 @@ footer {
     max-width: 20%; /* Ensures the image scales to fit the screen */
     height: auto; /* Keeps the image's aspect ratio */
 }
+
+/* For mobile devices (widths 768px or less) */
+@media (max-width: 768px) {
+    /* Left side: Make it take full width on mobile */
+    .left-side {
+        position: static; /* Positioning is reset */
+        width: 100%; /* Take full width on mobile */
+        padding: 20px; /* Add padding for spacing */
+    }
+
+    /* Right side: Stack it below the left side */
+    .right-side {
+        position: static; /* Positioning is reset */
+        width: 100%; /* Take full width */
+        padding: 20px; /* Add padding for spacing */
+        margin-top: 20px; /* Add margin to create space between sections */
+    }
+
+    /* Work section: Stack elements vertically */
+    .work-container {
+        flex-direction: column; /* Stack the work and resume section vertically */
+        align-items: center; /* Center-align the content */
+    }
+
+    /* Work section content: Take full width on mobile */
+    .work-content, .resume-container {
+        max-width: 100%; /* Make both sections take full width */
+        padding: 20px; /* Add padding for spacing */
+    }
+
+    /* Image containers: Make them responsive */
+    .young-joey, .blockbuster-video {
+        width: 100%; /* Ensure the images take full width */
+        height: auto; /* Maintain aspect ratio */
+        transform: none; /* Remove any translate/scale effects for mobile */
+    }
+
+    /* Video section: Stack the videos on top of each other */
+    .video-container {
+        flex-direction: column; /* Stack videos vertically */
+    }
+
+    /* Video column: Make the video take full width */
+    .video-column {
+        width: 100%; /* Take full width */
+        margin-bottom: 20px; /* Add margin between videos */
+    }
+
+    /* Conclusion section: Ensure proper padding and width */
+    .conclusion-section {
+        padding: 20px; /* Reduce padding on mobile */
+        max-width: 100%; /* Take full width */
+    }
+
+    /* Footer: Make the image smaller on mobile */
+    .footer-image img {
+        max-width: 50%; /* Adjust this value as needed */
+    }
+}
